@@ -1,14 +1,15 @@
-document.addEventListener('DOMContentLoaded', function () {
-    chrome.runtime.sendMessage({
-        action: 'getStorage'
-    }, function (response) {
-        document.getElementById('integers').value = response.data;
+function handlerSubmit() {
+    let value = document.getElementById('integers').value.split(',');
+
+    chrome.runtime.sendMessage({action: 'setIntegers', data: value});
+}
+
+function handlerDOMContentLoaded() {
+    chrome.runtime.sendMessage({action: 'getIntegers'}, function (response) {
+        document.getElementById('integers').value = response.data.join();
     });
 
-    document.getElementById('set').addEventListener('click', function () {
-        chrome.runtime.sendMessage({
-            action: 'setStorage',
-            data: document.getElementById('integers').value
-        });
-    });
-});
+    document.getElementById('submit').addEventListener('click', handlerSubmit);
+}
+
+document.addEventListener('DOMContentLoaded', handlerDOMContentLoaded);

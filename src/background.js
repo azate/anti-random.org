@@ -1,14 +1,22 @@
+function getIntegers() {
+    let integers = localStorage.getItem('integers');
+
+    return integers !== null ? integers.split(',') : [1, 2, 3];
+}
+
+function setIntegers(integers) {
+    localStorage.setItem('integers', integers.join());
+}
+
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     switch (message.action) {
-        case 'getStorage':
-            var integers = localStorage.getItem('integers');
+        case 'getIntegers':
+            let data = getIntegers();
 
-            sendResponse({
-                data: (integers != null) ? integers : '1'
-            });
+            sendResponse({data: data});
             break;
-        case 'setStorage':
-            localStorage.setItem('integers', message.data);
+        case 'setIntegers':
+            setIntegers(message.data);
             break;
     }
 });

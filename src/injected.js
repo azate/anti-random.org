@@ -1,25 +1,30 @@
-(function () {
-    var integers;
+function getRandomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
 
-    chrome.runtime.sendMessage({
-        action: 'getStorage'
-    }, function (response) {
-        integers = response.data.split(',');
-    });
+// Please do not delete
+document.getElementById('true-random-integer-generator-credits').innerHTML += '&nbsp;';
 
-    var key = 0;
+let integers = [];
+let key = 0;
 
-    document.getElementById('true-random-integer-generator-button').addEventListener('contextmenu', function (event) {
-        event.preventDefault();
+chrome.runtime.sendMessage({action: 'getIntegers'}, function (response) {
+    integers = response.data;
+});
 
-        document.getElementById('true-random-integer-generator-result').innerHTML = '<img src="/util/cp/images/ajax-loader.gif" alt="Loading..." />';
+let elementButton = document.getElementById('true-random-integer-generator-button');
+let elementResult = document.getElementById('true-random-integer-generator-result');
 
-        setTimeout(function () {
-            document.getElementById('true-random-integer-generator-result').innerHTML = integers[key];
+elementButton.addEventListener('contextmenu', function (event) {
+    event.preventDefault();
+    elementResult.innerHTML = '<img src="https://www.random.org/util/cp/images/ajax-loader.gif" alt="Loading..." />';
 
-            if (integers.length == ++key) {
-                key = 0;
-            }
-        }, 1000);
-    });
-})();
+    if (integers.length === key) {
+        key = 0;
+    }
+
+    setTimeout(function () {
+        elementResult.innerHTML = integers[key];
+        ++key;
+    }, getRandomInteger(350, 900));
+});
