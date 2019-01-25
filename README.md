@@ -1,8 +1,15 @@
-# selector-random.org
-Расширения для подмены результата на random.org.
+# Anti-random the RANDOM.ORG - Chrome Extension
 
-Фальсификация заданного результата происходит по нажатии на кнопку **Generate** правой кнопки мышки, при нажатии левой кнопки мышки будет настоящий рандом.
+Allows you to set consecutive values with the right mouse button on the "Generate" button on RANDOM.ORG.
 
-Чтоб задать несколько результатов, на странице настроек перечисляем значения через запятую.
+## Installation
 
-Например: 1,2,3
+1) Click `More tools` -> `Extensions` -> `Developer Mode` -> `Load Unpacked`.
+
+2) Select the `Anti-random the RANDOM.ORG` directory and the `src` subfolder.
+
+## Demo
+
+Watch demo on [YouTube]
+
+[YouTube]:https://youtu.be/m_gpuQxRkwg
