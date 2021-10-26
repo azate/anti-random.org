@@ -1,0 +1,7 @@
+/.idea
+/artifacts
+/dist
+/node_modules
+
+*.pem
+*.pub

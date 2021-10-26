@@ -1,0 +1,45 @@
+{
+  "manifest_version": 2,
+  "name": "Anti the RANDOM.ORG",
+  "homepage_url": "https://github.com/azate/anti-random.org",
+  "description": "Replaces the results of the Randomizer of random numbers and lists with RANDOM.ORG.",
+  "permissions": [
+    "*://www.random.org/*",
+    "storage"
+  ],
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "Anti the RANDOM.ORG",
+    "default_icon": {
+      "19": "icons/19.png",
+      "38": "icons/38.png"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "browser_style": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.random.org/*"],
+      "run_at": "document_end",
+      "js": ["js/cs-marker.js"]
+    },
+    {
+      "matches": ["*://www.random.org/lists/*"],
+      "run_at": "document_start",
+      "js": ["js/cs-list-randomizer.js"]
+    },
+    {
+      "all_frames": true,
+      "matches": ["*://www.random.org/widgets/integers/iframe*"],
+      "run_at": "document_end",
+      "js": ["js/cs-random-number.js"]
+    }
+  ]
+}
