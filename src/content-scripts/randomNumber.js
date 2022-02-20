@@ -71,7 +71,7 @@ function renderResult(element, minValue, maxValue, value) {
     + '<span style="font-size:70%;">'
     + `Min:&nbsp;${minValue}, Max:&nbsp;${maxValue}`
     + '<br>'
-    + `${date.format(new Date(), 'YYYY-MM-DD hh:mm:ss UTC', true)}`
+    + `${date.format(new Date(), 'YYYY-MM-DD HH:mm:ss UTC', true)}`
     + '</span>'
     + '</center>';
 }
