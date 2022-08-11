@@ -18,40 +18,52 @@ function disableFalsify() {
 }
 
 function handlerFalsifyResult() {
-  // TODO: разобраться  со скоростью
-  new MutationObserver(((mutations) => {
+  new MutationObserver(async (mutations, observer) => {
     if (!isFalsify()) {
       return;
     }
 
-    getValues(STORAGE_RESULT_LIST_RANDOMIZER_VALUES)
-      .then((values) => arrayShuffle(values))
-      .then((values) => {
-        if (!values.length) {
-          return Promise.reject(new Error('Not found values.'));
+    const falsifiedValues = arrayShuffle(await getValues(STORAGE_RESULT_LIST_RANDOMIZER_VALUES));
+    if (!falsifiedValues.length) {
+      return;
+    }
+
+    const mutation = mutations.find((x) => x.target instanceof HTMLOListElement);
+    if (mutation === undefined) {
+      return;
+    }
+
+    const elements = [...mutation.target.children];
+    if (!elements.length) {
+      return;
+    }
+
+    observer.disconnect();
+
+    elements.reduce((originalValues, element, index) => {
+      const originalValue = element.innerText;
+      if (falsifiedValues[index] !== undefined) {
+        // eslint-disable-next-line no-param-reassign
+        element.innerText = falsifiedValues[index];
+        return [...originalValues, originalValue];
+      }
+
+      if (originalValues.length && falsifiedValues.includes(originalValue)) {
+        const newValueIndex = originalValues.findIndex((x) => !falsifiedValues.includes(x));
+        if (newValueIndex === -1) {
+          return originalValues;
         }
+        // eslint-disable-next-line no-param-reassign
+        element.innerText = originalValues[newValueIndex];
+        return originalValues.splice(newValueIndex, 1);
+      }
 
-        return values;
-      })
-      .then((values) => {
-        mutations
-          .filter((mutation) => mutation.target instanceof HTMLOListElement)
-          .map((mutation) => [...mutation.target.children])
-          .filter((children) => children.length > 0)
-          .map((children) => children.slice(0, values.length))
-          .filter((children) => !children.every((child) => values.includes(child.textContent)))
-          .forEach(async (children) => {
-            children.forEach((child, index) => {
-              // eslint-disable-next-line no-param-reassign
-              child.innerText = values[index];
-            });
+      return originalValues;
+    }, []);
 
-            disableFalsify();
-            await clearValues(STORAGE_RESULT_LIST_RANDOMIZER_VALUES);
-          });
-      })
-      .catch((e) => console.log(e));
-  })).observe(document, {
+    disableFalsify();
+    await clearValues(STORAGE_RESULT_LIST_RANDOMIZER_VALUES);
+  }).observe(document, {
     childList: true,
     subtree: true,
     attributes: false,
