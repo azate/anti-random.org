@@ -1,4 +1,4 @@
-# [[EN](README.md)] Anti-random для [random.org](https://random.org) - Chrome Extension
+# [🤫](https://stats.azate.org/share/744cmBjq/anti-random) [[EN](README.md)] Anti-random для [random.org](https://random.org) - Chrome Extension
 
 <p align="center">
   <img src="demo.gif" alt="Demo"/>
