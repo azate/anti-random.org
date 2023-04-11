@@ -101,11 +101,17 @@ function renderLoading(element) {
 
       await deleteValue(STORAGE_RESULT_NUMBER_RANDOM_VALUES, value);
 
+      event.target.parentElement.parentElement
+        .querySelectorAll('input[type=number]')
+        .forEach((e) => e.setAttribute('disabled', null));
       event.target.setAttribute('disabled', null);
       renderLoading(resultElement);
       setTimeout(() => {
         renderResult(resultElement, minValue, maxValue, value);
         event.target.removeAttribute('disabled');
+        event.target.parentElement.parentElement
+          .querySelectorAll('input[type=number]')
+          .forEach((e) => e.removeAttribute('disabled'));
       }, timeout);
     } catch (e) {
       event.target.click();
