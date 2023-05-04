@@ -24,7 +24,7 @@ The expansion was created to demonstrate the possibility of skilful manipulation
 
 ### For the random number block
 
-- Go to the [page](https://rangom.org)
+- Go to the [page](https://random.org)
 - In the **True Random Number Generator** block, fill in the desired minimum and maximum value
 - Click the **Generate** button with the right mouse button
 - If there are values you specify for falsification and one of them falls into the range you specify, you will see a falsified result
