@@ -1,7 +1,5 @@
 /.idea
-/artifacts
-/dist
+/.plasmo
+/build
 /node_modules
-
-*.pem
-*.pub
+.env*

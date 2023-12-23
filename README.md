@@ -9,13 +9,19 @@ This extension allows you to falsify results for the random number block on the 
 
 The expansion was created to demonstrate the possibility of skilful manipulation of results for draws, as well as to encourage participants and organizers to pay attention to the use of well-known services, which provide the ability to view the final results to anyone via a link.
 
+## Donations
+
+- **BTC (Coin)** ```1GJfZSAtkiSgrVRzxSm7UX2n35Drby1dVs```
+- **ETH (ERC20)** ```0x8eE9250325BE460f0225d0d745873F3b485a885b```
+- **USDT (TRC20)** ```TUQFo52LRWNWa61gtQcbtWMCs3CUPae9Ub```
+
 ## Installing from releases
 
 - Download the **anti-random.org-\*.zip** file in the latest available [release](https://github.com/azate/anti-random.org/releases)
 - Unzip the archive
 - Open your browser and go to the extensions page using this URL ```chrome://extensions```
 - Make sure that **Developer mode** is enabled
-- Click the **Load unpacked extension** button and select the directory with the unpacked extension
+- Click the **Load unpacked extension** button and select the folder with the unpacked extension
 
 ## Using
 
@@ -52,12 +58,6 @@ The expansion was created to demonstrate the possibility of skilful manipulation
 
 In short, no. The extension was created for demonstration purposes, but if you implement it yourself and create a pull request, I will consider it
 
-#### How to support you?
-
-- In the form of money, it will help me spend more time implementing various ideas and share the results with you
-  - BTC ```bc1q58yh0xqpg05s8qxv6yj63aq8n9l4t7n0p542vv```
-- To disseminate information about this project in the information space with noble goals
-
 #### Is it safe?
 
 The author does not take any responsibility, according to the license. The code is open source, and you can audit it or build it yourself from source without using the analytics that are present in ready-made releases. Analytics are only built into the extension options and are used to find out audience coverage
@@ -66,21 +66,18 @@ The author does not take any responsibility, according to the license. The code 
 
 ### Requirements
 
-- Linux
-- make ~4.3
-- node ~14
-- yarn ~1.22
+- **node** ^20.10
+- **pnpm** ^8.11
 
 ### Build
 
 - Download the **Source code (zip)** file in the latest available [release](https://github.com/azate/anti-random.org/releases)
-- Unzip the archive and go to the folder with the extension
-- Use the terminal to run the command ```make build```
-- An archive will appear in the **artifacts** folder
+- Unzip the archive and go to the folder with the sources
+- Use the terminal to run the command ```pnpm install && pnpm run build```
+- An archive and folder with extension will appear in the **build** folder
 
 ### Installation
 
-- Unzip the archive from the **artifacts** folder
 - Open your browser and go to the extensions page using this URL ```chrome://extensions```
 - Make sure that **Developer mode** is enabled
-- Click the **Load unpacked extension** button and select the directory with the unpacked extension from the **artifacts** folder
+- Click the **Load unpacked extension** button and select the folder with the extension from the **build** folder
