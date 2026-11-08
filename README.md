@@ -1,4 +1,4 @@
-# [🤫](https://stats.azate.org/share/744cmBjq/anti-random) [[RU](README_RU.md)] Anti-random for [random.org](https://random.org) - Chrome Extension
+# [[RU](README_RU.md)] Anti-random for [random.org](https://random.org) - Chrome Extension
 
 <p align="center">
   <img src="demo.gif" alt="Demo"/>
@@ -8,6 +8,75 @@
 This extension allows you to falsify results for the random number block on the home page and the list randomizer.
 
 The expansion was created to demonstrate the possibility of skilful manipulation of results for draws, as well as to encourage participants and organizers to pay attention to the use of well-known services, which provide the ability to view the final results to anyone via a link.
+
+## Statistics
+
+Usage data collected with self-hosted [umami](https://umami.is) from November 4, 2021 to November 8, 2026 (extension popup and options pages only).
+
+- **~1,100** installations (unique extension IDs)
+- **3,670** sessions
+- **45,044** page views
+
+```mermaid
+xychart-beta
+  title "Sessions per year"
+  x-axis ["2021*", "2022", "2023", "2024", "2025", "2026*"]
+  y-axis "Sessions"
+  bar [36, 306, 773, 1135, 831, 590]
+```
+
+### By year
+
+| Year | Sessions | Active installations | Page views |
+|---|---:|---:|---:|
+| 2021\* | 36 | 19 | 1,085 |
+| 2022 | 306 | 130 | 7,832 |
+| 2023 | 773 | 294 | 15,623 |
+| 2024 | 1,135 | 401 | 11,762 |
+| 2025 | 831 | 264 | 5,604 |
+| 2026\* | 590 | 156 | 3,138 |
+
+\* Partial years: 2021 — from November 4, 2026 — up to November 8.
+
+### Audience
+
+Share of all sessions.
+
+**Countries**
+
+| Country | % |
+|---|---:|
+| USA | 17.1 |
+| Vietnam | 13.7 |
+| Romania | 12.1 |
+| Germany | 11.0 |
+| Russia | 10.4 |
+| Ukraine | 7.5 |
+| Other | 28.2 |
+
+**Browsers**
+
+| Browser | % |
+|---|---:|
+| Chrome | 79.6 |
+| Edge | 16.0 |
+| Other | 4.3 |
+
+**Operating systems**
+
+| OS | % |
+|---|---:|
+| Windows | 77.8 |
+| macOS | 19.5 |
+| Linux | 1.6 |
+| Other | 1.1 |
+
+### Usage
+
+- **2 out of 3** installations (67%) were used for a single day only
+- **86%** of result views — random number generator, **14%** — list randomizer
+
+Over five years, about 1,100 people have checked how easy it is to fake a draw result. Don't trust screenshots or screen recordings of a draw — ask for a link to the result on the service itself.
 
 ## Donations
 
@@ -60,7 +129,7 @@ In short, no. The extension was created for demonstration purposes, but if you i
 
 #### Is it safe?
 
-The author does not take any responsibility, according to the license. The code is open source, and you can audit it or build it yourself from source without using the analytics that are present in ready-made releases. Analytics are only built into the extension options and are used to find out audience coverage
+The author does not take any responsibility, according to the license. The code is open source, and you can audit it or build it yourself from source without using the analytics that are present in ready-made releases. Analytics were built into the extension popup and options pages and were used to find out audience coverage; no data was sent from random.org pages. Data collection stopped in November 2026 and the analytics server has been shut down
 
 ## Local build and installation
 
